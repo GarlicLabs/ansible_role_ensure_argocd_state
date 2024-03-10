@@ -1,0 +1,10 @@
+---
+- name: Converge
+  hosts: localhost
+  gather_facts: false
+  vars: 
+  - argocd_kubeconfig: ""
+  tasks:
+    - name: "Include garliclabs.ansible_role_ensure_argocd_state"
+      ansible.builtin.include_role:
+        name: "ansible_role_ensure_argocd_state"

@@ -1,0 +1,8 @@
+---
+
+argocd_kubeconfig: "/home/{{ ansible_user }}/.kube/config"
+argocd_namespace: development
+argocd_chart_version: 6.4.0
+argocd_host_name: argocd.example.com
+argocd_state: present
+#argocd_value_path: Set path to your own helm values file

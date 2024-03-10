@@ -1,0 +1,29 @@
+---
+
+- name: Use provided helm values
+  ansible.builtin.set_fact:
+    argocd_helm_values_template: "{{ argocd_value_path }}"
+  when: (argocd_value_path is defined) and (argocd_value_path|length>0)
+
+- name: Use default helm values
+  ansible.builtin.set_fact:
+    argocd_helm_values_template: "values.yml.j2"
+  when: (argocd_value_path is undefined) or (argocd_value_path|length == 0)
+
+- name: Set argocd helm values variable content
+  ansible.builtin.set_fact:
+    argocd_helm_values: "{{ lookup('template', argocd_helm_values_template) | from_yaml }}"
+
+- name: "Ensure argocd is {{ argocd_state }}"
+  kubernetes.core.helm:
+    kubeconfig: "{{ argocd_kubeconfig }}"
+    name: argocd
+    chart_repo_url: "https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd"
+    chart_ref: argocd
+    release_namespace: "{{ argocd_namespace }}"
+    release_state: "{{ argocd_state }}"
+    chart_version: "{{ argocd_chart_version }}"
+    create_namespace: true
+    wait: false
+    values: "{{ argocd_helm_values }}"
+      
