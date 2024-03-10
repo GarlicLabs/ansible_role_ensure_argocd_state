@@ -1,6 +1,6 @@
-# ensure_argocd_state
+# ansible_role_ensure_argocd_state
 
-[![Validate infrastructure as code](https://github.com/garliclabs/ensure_argocd_state/actions/workflows/validation.yml/badge.svg)](https://github.com/garliclabs/ensure_argocd_state/actions/workflows/validation.yml)
+[![Validate infrastructure as code](https://github.com/garliclabs/ansible_role_ensure_argocd_state/actions/workflows/validation.yml/badge.svg)](https://github.com/garliclabs/ansible_role_ensure_argocd_state/actions/workflows/validation.yml)
 
 Installs an Argocd on K8s
 ## Requirements
@@ -40,3 +40,4 @@ None.
 ## License
 
 GNU General Public License version 3
+
