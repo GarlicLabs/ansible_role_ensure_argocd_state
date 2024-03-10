@@ -42,7 +42,7 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v4
         with:
-          path: 'ensure_argocd_state'
+          path: 'ansible_role_ensure_argocd_state'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v5
@@ -50,7 +50,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install -r ensure_argocd_state/pip_requirements.txt
+        run: pip3 install -r ansible_role_ensure_argocd_state/pip_requirements.txt
 
       - uses: AbsaOSS/k3d-action@4e8b3239042be1dc0aed6c5eb80c13b18200fc79
         name: "Enable k3d in gh action with creating a cluster"
@@ -60,7 +60,7 @@ jobs:
 
       - name: Run Molecule tests
         run: molecule test
-        working-directory: 'ensure_argocd_state'
+        working-directory: 'ansible_role_ensure_argocd_state'
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
