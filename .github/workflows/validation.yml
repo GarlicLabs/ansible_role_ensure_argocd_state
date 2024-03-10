@@ -42,7 +42,7 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v4
         with:
-          path: 'ensure_argocd_state'
+          path: 'ansible_role_ensure_argocd_state'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v5
@@ -60,7 +60,7 @@ jobs:
 
       - name: Run Molecule tests
         run: molecule test
-        working-directory: 'ensure_argocd_state'
+        working-directory: 'ansible_role_ensure_argocd_state'
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'

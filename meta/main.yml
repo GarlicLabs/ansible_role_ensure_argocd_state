@@ -1,7 +1,7 @@
 galaxy_info:
   author: lcndsmr, ngotzmann
   namespace: garliclabs
-  description: Installs an ArgoCD on Kubernetes
+  description: Manage ArgoCD deployment and configuration
   license: GPL-3.0-only
 
   min_ansible_version: "2.11"
@@ -12,5 +12,3 @@ galaxy_info:
   galaxy_tags:
     - helm
     - kubernetes
-    - ingress
-    - nginx
